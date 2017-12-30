@@ -1,18 +1,24 @@
+import './config/ReacttotronConfig';
+
 import React, { Component } from 'react';
+
+import { Provider } from 'react-redux';
+
 import {
   StyleSheet,
   Text,
   View
 } from 'react-native';
 
+import store from './store';
+import TodoList from './components/TodoList';
+
 export default class App extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          todoApp Project!
-        </Text>
-      </View>
+      <Provider store={store}>
+        <TodoList />
+      </Provider>
     );
   }
 }
